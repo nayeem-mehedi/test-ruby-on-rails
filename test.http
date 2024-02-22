@@ -1,0 +1,54 @@
+# Use this extenstion to test api using this file
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+# @name create
+POST http://127.0.0.1:3000/api/v1/articles HTTP/1.1
+content-type: application/json
+
+{
+    "title": "How easy is it to LEARN RUBY?",
+    "body": "Ruby on Rails offers Java developers a refreshing perspective, unlocking new avenues for creativity and efficiency in web development. Embrace the simplicity and elegance of Rails while leveraging your Java expertise to craft robust, innovative solutions faster than ever before.",
+    "author": "Nayeem"
+}
+
+###
+
+# @name list
+GET http://127.0.0.1:3000/api/v1/articles HTTP/1.1
+content-type: application/json
+
+###
+
+# @name get_one
+GET http://127.0.0.1:3000/api/v1/articles/{{create.response.body.data.id}} HTTP/1.1
+content-type: application/json
+
+###
+
+# @name update
+PUT http://127.0.0.1:3000/api/v1/articles/{{create.response.body.data.id}} HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Learning Ruby On Rails",
+    "body": "Started learning the Ruby on Rails and it seems FUN",
+    "author": "Nayeem Mehedi"
+}
+
+###
+
+# @name delete
+DELETE  http://127.0.0.1:3000/api/v1/articles/{{create.response.body.data.id}} HTTP/1.1
+content-type: application/json
+
+####
+
+# @name external_api
+
+###btc 90
+###eth 80
+
+GET  http://127.0.0.1:3000/api/v1/crypto/90 HTTP/1.1
+content-type: application/json
+
+###
